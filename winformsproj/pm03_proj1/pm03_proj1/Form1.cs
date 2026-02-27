@@ -82,19 +82,19 @@ namespace pm03_proj1
 
                 double currentAmount = principal;
 
-                //// --- ÍÀ×ÀËÎ: ÂÛ×ÈÑËÈÒÅËÜÍÛÉ İÊÑÏÅĞÈÌÅÍÒ È ÃĞÀÔÈÊ ---
-                //chart1.Series.Clear();
-                //Series series = chart1.Series.Add("Êàïèòàë");
-                //series.ChartType = SeriesChartType.Column;
-                //series.Color = System.Drawing.Color.MediumSeaGreen;
-                //series.IsValueShownAsLabel = true;
+                // --- ÍÀ×ÀËÎ: ÂÛ×ÈÑËÈÒÅËÜÍÛÉ İÊÑÏÅĞÈÌÅÍÒ È ÃĞÀÔÈÊ ---
+                chart1.Series.Clear();
+                Series series = chart1.Series.Add("Êàïèòàë");
+                series.ChartType = SeriesChartType.Column;
+                series.Color = System.Drawing.Color.MediumSeaGreen;
+                series.IsValueShownAsLabel = true;
 
-                //for (int i = 1; i <= years; i++)
-                //{
-                //    currentAmount += currentAmount * rate;
-                //    series.Points.AddXY(i, Math.Round(currentAmount, 2));
-                //}
-                //// --- ÊÎÍÅÖ: ÂÛ×ÈÑËÈÒÅËÜÍÛÉ İÊÑÏÅĞÈÌÅÍÒ ---
+                for (int i = 1; i <= years; i++)
+                {
+                    currentAmount += currentAmount * rate;
+                    series.Points.AddXY(i, Math.Round(currentAmount, 2));
+                }
+                // --- ÊÎÍÅÖ: ÂÛ×ÈÑËÈÒÅËÜÍÛÉ İÊÑÏÅĞÈÌÅÍÒ ---
 
                 // Èñïîëüçóåì íîâûå êëàññû
                 using (SqliteConnection conn = new SqliteConnection(connectionString))
